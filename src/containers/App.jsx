@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Router, Switch, Route } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import styled, { css, ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import treeChanges from 'tree-changes';
 
 import history from 'modules/history';
-import theme, { headerHeight } from 'modules/theme';
-import { utils } from 'styled-minimal';
+import theme from 'modules/theme';
 
 import config from 'config';
-import { showAlert } from 'actions/index';
 
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
@@ -30,16 +28,8 @@ const AppWrapper = styled.div`
   transition: opacity 0.5s;
 `;
 
-const MainPrivate = ({ isAuthenticated }) =>
-  isAuthenticated &&
-  css`
-    padding: ${utils.px(headerHeight)} 0 0;
-  `;
-
 const Main = styled.main`
   min-height: 100vh;
-
-  ${MainPrivate};
 `;
 
 export class App extends React.Component {
@@ -49,12 +39,11 @@ export class App extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { dispatch } = this.props;
     const { changedTo } = treeChanges(this.props, nextProps);
 
     /* istanbul ignore else */
     if (changedTo('user.isAuthenticated', true)) {
-      dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
+      // dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
     }
   }
 
