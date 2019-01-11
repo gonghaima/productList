@@ -64,7 +64,7 @@ export class Home extends React.PureComponent {
 
     return (
       <Background key="Home" data-testid="HomeWrapper">
-        <HomeContainer verticalPadding>
+        <HomeContainer verticlPadding>
           <Header>
             <Logo />
           </Header>

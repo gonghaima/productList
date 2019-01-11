@@ -117,8 +117,6 @@ exports[`Home should render properly 1`] = `
   max-width: 1440px;
   position: relative;
   width: 100%;
-  padding-bottom: 16px;
-  padding-top: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -157,20 +155,6 @@ exports[`Home should render properly 1`] = `
 
 @media (min-width:768px) {
   .c1 {
-    padding-bottom: 32px;
-    padding-top: 32px;
-  }
-}
-
-@media (min-width:1024px) {
-  .c1 {
-    padding-bottom: 64px;
-    padding-top: 64px;
-  }
-}
-
-@media (min-width:768px) {
-  .c1 {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -191,7 +175,8 @@ exports[`Home should render properly 1`] = `
     data-testid="HomeWrapper"
   >
     <HomeContainer
-      verticalPadding={true}
+      verticalPadding={false}
+      verticlPadding={true}
     >
       <div
         className="c1"
