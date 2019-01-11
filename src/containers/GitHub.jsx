@@ -8,18 +8,7 @@ import { appColor } from 'modules/theme';
 import { getRepos, showAlert, switchMenu } from 'actions/index';
 import { STATUS } from 'constants/index';
 
-import {
-  Box,
-  ButtonGroup,
-  Button,
-  Flex,
-  Heading,
-  Link,
-  Image,
-  Paragraph,
-  theme,
-  utils,
-} from 'styled-minimal';
+import { Box, Flex, Heading, Link, Image, Paragraph, theme, utils } from 'styled-minimal';
 import Loader from 'components/Loader';
 
 const { responsive, spacer } = utils;
@@ -179,28 +168,7 @@ export class GitHub extends React.Component {
 
     return (
       <div key="GitHub" data-testid="GitHubWrapper">
-        <Flex justifyContent="center">
-          <ButtonGroup role="group" aria-label="GitHub Selector" data-testid="GitHubSelector">
-            <Button
-              animate={query === 'react' && github.repos.status === 'running'}
-              outline={query !== 'react'}
-              size="lg"
-              data-query="react"
-              onClick={this.handleClick}
-            >
-              React
-            </Button>
-            <Button
-              animate={query === 'redux' && github.repos.status === 'running'}
-              outline={query !== 'redux'}
-              size="lg"
-              data-query="redux"
-              onClick={this.handleClick}
-            >
-              Redux
-            </Button>
-          </ButtonGroup>
-        </Flex>
+        <Flex justifyContent="center" />
         {output}
       </div>
     );

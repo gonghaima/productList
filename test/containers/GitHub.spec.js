@@ -100,20 +100,4 @@ describe('GitHub', () => {
       },
     });
   });
-
-  it('should dispatch an action when click selector button', () => {
-    const button = mount(
-      wrapper
-        .find('ButtonGroup')
-        .childAt(1)
-        .getElement(),
-    );
-
-    button.simulate('click');
-
-    expect(mockDispatch).toHaveBeenCalledWith({
-      payload: { query: 'redux' },
-      type: 'SWITCH_MENU',
-    });
-  });
 });

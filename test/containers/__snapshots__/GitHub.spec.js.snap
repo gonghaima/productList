@@ -8,42 +8,7 @@ exports[`GitHub should render properly 1`] = `
   <Flex
     alignItems="center"
     justifyContent="center"
-  >
-    <ButtonGroup
-      aria-label="GitHub Selector"
-      data-testid="GitHubSelector"
-      role="group"
-    >
-      <Button
-        animate={false}
-        as="button"
-        block={false}
-        data-query="react"
-        disabled={false}
-        onClick={[Function]}
-        outline={false}
-        size="lg"
-        type="button"
-        variant="primary"
-      >
-        React
-      </Button>
-      <Button
-        animate={false}
-        as="button"
-        block={false}
-        data-query="redux"
-        disabled={false}
-        onClick={[Function]}
-        outline={true}
-        size="lg"
-        type="button"
-        variant="primary"
-      >
-        Redux
-      </Button>
-    </ButtonGroup>
-  </Flex>
+  />
   <Loader
     block={true}
     color="#00b4d5"
