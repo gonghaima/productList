@@ -16,10 +16,8 @@ import { showAlert } from 'actions/index';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
-import Header from 'components/Header';
 import SystemAlerts from 'containers/SystemAlerts';
 
-import Footer from 'components/Footer';
 import GlobalStyles from 'components/GlobalStyles';
 import RoutePrivate from 'components/RoutePrivate';
 
@@ -61,7 +59,7 @@ export class App extends React.Component {
   }
 
   render() {
-    const { dispatch, user } = this.props;
+    const { user } = this.props;
 
     return (
       <Router history={history}>
@@ -75,14 +73,12 @@ export class App extends React.Component {
               titleTemplate={`%s | ${config.name}`}
               titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
             />
-            {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
             <Main isAuthenticated={user.isAuthenticated}>
               <Switch>
                 <RoutePrivate isAuthenticated={true} path="/" component={Private} />
                 <Route component={NotFound} />
               </Switch>
             </Main>
-            <Footer />
             <SystemAlerts />
             <GlobalStyles />
           </AppWrapper>
