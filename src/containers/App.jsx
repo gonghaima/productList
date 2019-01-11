@@ -13,7 +13,6 @@ import { utils } from 'styled-minimal';
 import config from 'config';
 import { showAlert } from 'actions/index';
 
-import Home from 'routes/Home';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
@@ -22,7 +21,6 @@ import SystemAlerts from 'containers/SystemAlerts';
 
 import Footer from 'components/Footer';
 import GlobalStyles from 'components/GlobalStyles';
-import RoutePublic from 'components/RoutePublic';
 import RoutePrivate from 'components/RoutePrivate';
 
 const AppWrapper = styled.div`
@@ -80,17 +78,7 @@ export class App extends React.Component {
             {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
             <Main isAuthenticated={user.isAuthenticated}>
               <Switch>
-                <RoutePublic
-                  isAuthenticated={user.isAuthenticated}
-                  path="/"
-                  exact
-                  component={Home}
-                />
-                <RoutePrivate
-                  isAuthenticated={user.isAuthenticated}
-                  path="/private"
-                  component={Private}
-                />
+                <RoutePrivate isAuthenticated={true} path="/" component={Private} />
                 <Route component={NotFound} />
               </Switch>
             </Main>
