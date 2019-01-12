@@ -13,8 +13,6 @@ import config from 'config';
 import Home from 'routes/Home';
 import NotFound from 'routes/NotFound';
 
-// import SystemAlerts from 'containers/SystemAlerts';
-
 import GlobalStyles from 'components/GlobalStyles';
 import RouteProduct from 'components/RouteProduct';
 
@@ -34,13 +32,6 @@ const Main = styled.main`
 
 export class App extends React.Component {
   static propTypes = {};
-
-  // componentWillReceiveProps(nextProps) {
-  //   /* istanbul ignore else */
-  //   // if (changedTo('user.isAuthenticated', true)) {
-  //   //   // dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
-  //   // }
-  // }
 
   render() {
     return (
