@@ -1,5 +1,5 @@
 import React from 'react';
-import Github from 'containers/GitHub';
+import Github from 'containers/Product';
 
 import { Container, Screen } from 'styled-minimal';
 

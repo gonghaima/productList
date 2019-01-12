@@ -2,7 +2,7 @@ import React from 'react';
 
 import { STATUS } from 'constants/index';
 
-import { GitHub } from 'containers/GitHub';
+import { GitHub } from 'containers/Product';
 
 jest.mock('uuid/v4', () => () => 'ABCDE');
 
