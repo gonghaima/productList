@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Router, Switch, Route } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
-import treeChanges from 'tree-changes';
 
 import history from 'modules/history';
 import theme from 'modules/theme';
@@ -33,27 +32,20 @@ const Main = styled.main`
 `;
 
 export class App extends React.Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    user: PropTypes.object.isRequired,
-  };
+  static propTypes = {};
 
-  componentWillReceiveProps(nextProps) {
-    const { changedTo } = treeChanges(this.props, nextProps);
-
-    /* istanbul ignore else */
-    if (changedTo('user.isAuthenticated', true)) {
-      // dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   /* istanbul ignore else */
+  //   // if (changedTo('user.isAuthenticated', true)) {
+  //   //   // dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
+  //   // }
+  // }
 
   render() {
-    const { user } = this.props;
-
     return (
       <Router history={history}>
         <ThemeProvider theme={theme}>
-          <AppWrapper logged={user.isAuthenticated}>
+          <AppWrapper>
             <Helmet
               defer={false}
               htmlAttributes={{ lang: 'pt-br' }}
@@ -62,7 +54,7 @@ export class App extends React.Component {
               titleTemplate={`%s | ${config.name}`}
               titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
             />
-            <Main isAuthenticated={user.isAuthenticated}>
+            <Main isAuthenticated={true}>
               <Switch>
                 <RoutePrivate isAuthenticated={true} path="/" component={Private} />
                 <Route component={NotFound} />
@@ -77,11 +69,4 @@ export class App extends React.Component {
   }
 }
 
-/* istanbul ignore next */
-function mapStateToProps(state) {
-  return {
-    user: state.user,
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);
