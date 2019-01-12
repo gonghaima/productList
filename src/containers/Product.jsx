@@ -146,7 +146,7 @@ export class Product extends React.Component {
     }
 
     return (
-      <div key="GitHub" data-testid="GitHubWrapper">
+      <div key="Product" data-testid="GitHubWrapper">
         <Flex justifyContent="center" />
         {output}
       </div>

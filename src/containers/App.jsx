@@ -16,7 +16,7 @@ import NotFound from 'routes/NotFound';
 // import SystemAlerts from 'containers/SystemAlerts';
 
 import GlobalStyles from 'components/GlobalStyles';
-import RoutePrivate from 'components/RoutePrivate';
+import RouteProduct from 'components/RouteProduct';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ export class App extends React.Component {
             />
             <Main>
               <Switch>
-                <RoutePrivate path="/" component={Home} />
+                <RouteProduct path="/" component={Home} />
                 <Route component={NotFound} />
               </Switch>
             </Main>

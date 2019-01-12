@@ -6,10 +6,10 @@ describe('Github', () => {
     expect(reducer.product(undefined, {})).toMatchSnapshot();
   });
 
-  it(`should handle ${ActionTypes.GITHUB_GET_REPOS}`, () => {
+  it(`should handle ${ActionTypes.PRODUCT_GET_REPOS}`, () => {
     expect(
       reducer.product(undefined, {
-        type: ActionTypes.GITHUB_GET_REPOS,
+        type: ActionTypes.PRODUCT_GET_REPOS,
         payload: { q: 'react' },
       }),
     ).toMatchSnapshot();
@@ -24,10 +24,10 @@ describe('Github', () => {
     ).toMatchSnapshot();
   });
 
-  it(`should handle ${ActionTypes.GITHUB_GET_REPOS_FAILURE}`, () => {
+  it(`should handle ${ActionTypes.PRODUCT_GET_REPOS_FAILURE}`, () => {
     expect(
       reducer.product(undefined, {
-        type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
+        type: ActionTypes.PRODUCT_GET_REPOS_FAILURE,
         payload: {},
       }),
     ).toMatchSnapshot();

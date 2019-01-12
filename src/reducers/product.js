@@ -16,7 +16,7 @@ export const productState = {
 export default {
   product: handleActions(
     {
-      [ActionTypes.GITHUB_GET_REPOS]: (state, { payload }) => {
+      [ActionTypes.PRODUCT_GET_REPOS]: (state, { payload }) => {
         const data = state.repos.data[payload.query] ? state.repos.data[payload.query] : [];
 
         return immutable(state, {
@@ -39,7 +39,7 @@ export default {
             status: { $set: STATUS.READY },
           },
         }),
-      [ActionTypes.GITHUB_GET_REPOS_FAILURE]: (state, { payload }) =>
+      [ActionTypes.PRODUCT_GET_REPOS_FAILURE]: (state, { payload }) =>
         immutable(state, {
           repos: {
             message: { $set: parseError(payload.message) },

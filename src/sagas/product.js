@@ -27,7 +27,7 @@ export function* getRepos({ payload }) {
   } catch (err) {
     /* istanbul ignore next */
     yield put({
-      type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
+      type: ActionTypes.PRODUCT_GET_REPOS_FAILURE,
       payload: err,
     });
   }
@@ -37,5 +37,5 @@ export function* getRepos({ payload }) {
  * Product Sagas
  */
 export default function* root() {
-  yield all([takeLatest(ActionTypes.GITHUB_GET_REPOS, getRepos)]);
+  yield all([takeLatest(ActionTypes.PRODUCT_GET_REPOS, getRepos)]);
 }

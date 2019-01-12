@@ -34,7 +34,7 @@ describe('GitHub', () => {
   it('should have dispatched an action on mount', () => {
     expect(mockDispatch).toHaveBeenCalledWith({
       payload: { query: 'react' },
-      type: 'GITHUB_GET_REPOS',
+      type: 'PRODUCT_GET_REPOS',
     });
   });
 
