@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { appColor } from 'modules/theme';
@@ -91,6 +92,40 @@ const ItemHeader = styled.div`
   }
 `;
 
+const Pagination = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  ul {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  li {
+    display: inline-block;
+  }
+  a {
+    z-index: 3;
+    color: #000;
+    cursor: pointer;
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    background-color: #fff;
+  }
+
+  a:hover {
+    border-bottom: 3px solid #337ab7;
+  }
+  a:focus {
+    outline: unset;
+    border-bottom: 6px solid #337ab7;
+  }
+`;
+
 export class Product extends React.Component {
   state = {
     query: 'react',
@@ -149,6 +184,21 @@ export class Product extends React.Component {
       <div key="Product" data-testid="GitHubWrapper">
         <Flex justifyContent="center" />
         {output}
+        <Pagination>
+          <ReactPaginate
+            previousLabel={'< previous'}
+            nextLabel={'next >'}
+            breakLabel="..."
+            breakClassName="break-me"
+            pageCount={5}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={() => {}}
+            containerClassName="pagination"
+            subContainerClassName="pages pagination"
+            activeClassName="active"
+          />
+        </Pagination>
       </div>
     );
   }
