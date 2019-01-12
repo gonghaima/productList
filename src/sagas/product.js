@@ -7,6 +7,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { request } from 'modules/client';
 
 import { ActionTypes } from 'constants/index';
+import gitHubData from '../mocks/githubData';
 
 /**
  * Get Repos
@@ -16,13 +17,15 @@ import { ActionTypes } from 'constants/index';
  */
 export function* getRepos({ payload }) {
   try {
-    const response = yield call(
-      request,
-      `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`,
-    );
+    // const response = yield call(
+    //   request,
+    //   `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`,
+    // );
+
+    yield call(request, `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`);
     yield put({
       type: ActionTypes.PRODUCT_GET_REPOS_SUCCESS,
-      payload: { data: response.items },
+      payload: { data: gitHubData.items },
     });
   } catch (err) {
     /* istanbul ignore next */
