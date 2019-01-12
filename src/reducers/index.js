@@ -1,7 +1,7 @@
 // import app from './app';
-import github from './github';
+import product from './product';
 
 export default {
   // ...app,
-  ...github,
+  ...product,
 };

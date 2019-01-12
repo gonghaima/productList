@@ -1,4 +1,4 @@
-import reducer from 'reducers/github';
+import reducer from 'reducers/product';
 import { ActionTypes } from 'constants/index';
 
 describe('Github', () => {
