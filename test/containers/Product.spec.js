@@ -2,7 +2,7 @@ import React from 'react';
 
 import { STATUS } from 'constants/index';
 
-import { GitHub } from 'containers/Product';
+import { Product } from 'containers/Product';
 
 jest.mock('uuid/v4', () => () => 'ABCDE');
 
@@ -17,7 +17,7 @@ const props = {
 };
 
 function setup(ownProps = props) {
-  return shallow(<GitHub {...ownProps} />, { attachTo: document.getElementById('react') });
+  return shallow(<Product {...ownProps} />, { attachTo: document.getElementById('react') });
 }
 
 describe('GitHub', () => {

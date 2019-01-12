@@ -91,7 +91,7 @@ const ItemHeader = styled.div`
   }
 `;
 
-export class GitHub extends React.Component {
+export class Product extends React.Component {
   state = {
     query: 'react',
   };
@@ -159,4 +159,4 @@ function mapStateToProps(state) {
   return { github: state.github };
 }
 
-export default connect(mapStateToProps)(GitHub);
+export default connect(mapStateToProps)(Product);

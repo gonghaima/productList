@@ -9,7 +9,7 @@ exports[`Private should render properly 1`] = `
   <Container
     verticalPadding={true}
   >
-    <Connect(GitHub) />
+    <Connect(Product) />
   </Container>
 </Screen>
 `;
