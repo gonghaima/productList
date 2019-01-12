@@ -19,13 +19,4 @@ describe('Home', () => {
   it('should render properly', () => {
     expect(wrapper).toMatchSnapshot();
   });
-
-  it('should handle clicks', () => {
-    wrapper.find('Button').simulate('click');
-
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'USER_LOGIN',
-      payload: {},
-    });
-  });
 });

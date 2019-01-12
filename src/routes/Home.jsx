@@ -6,9 +6,8 @@ import styled from 'styled-components';
 import config from 'config';
 import { login } from 'actions/index';
 
-import { Button, Container, Text, utils } from 'styled-minimal';
+import { Container, utils } from 'styled-minimal';
 import Background from 'components/Background';
-import Icon from 'components/Icon';
 import Logo from 'components/Logo';
 
 const { spacer } = utils;
@@ -60,8 +59,6 @@ export class Home extends React.PureComponent {
   };
 
   render() {
-    const { user } = this.props;
-
     return (
       <Background key="Home" data-testid="HomeWrapper">
         <HomeContainer verticlPadding>
@@ -69,16 +66,6 @@ export class Home extends React.PureComponent {
             <Logo />
           </Header>
           <Heading>{config.description}</Heading>
-          <Button
-            animate={user.status === 'running'}
-            onClick={this.handleClickLogin}
-            size="xl"
-            textTransform="uppercase"
-            data-testid="Login"
-          >
-            <Icon name="sign-in" />
-            <Text ml={2}>Start</Text>
-          </Button>
         </HomeContainer>
       </Background>
     );
