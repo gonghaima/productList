@@ -13,7 +13,7 @@ import config from 'config';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
-import SystemAlerts from 'containers/SystemAlerts';
+// import SystemAlerts from 'containers/SystemAlerts';
 
 import GlobalStyles from 'components/GlobalStyles';
 import RoutePrivate from 'components/RoutePrivate';
@@ -60,7 +60,6 @@ export class App extends React.Component {
                 <Route component={NotFound} />
               </Switch>
             </Main>
-            <SystemAlerts />
             <GlobalStyles />
           </AppWrapper>
         </ThemeProvider>

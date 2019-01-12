@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import treeChanges from 'tree-changes';
 import { appColor } from 'modules/theme';
 
-import { getRepos, showAlert, switchMenu } from 'actions/index';
+import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import { Box, Flex, Heading, Link, Image, Paragraph, theme, utils } from 'styled-minimal';
@@ -108,26 +107,6 @@ export class GitHub extends React.Component {
 
     dispatch(getRepos(query));
   }
-
-  componentWillReceiveProps(nextProps) {
-    const { dispatch } = this.props;
-    const { changedTo } = treeChanges(this.props, nextProps);
-
-    if (changedTo('github.repos.status', STATUS.ERROR)) {
-      dispatch(showAlert(nextProps.github.repos.message, { variant: 'danger' }));
-    }
-  }
-
-  handleClick = e => {
-    const { query } = e.currentTarget.dataset;
-    const { dispatch } = this.props;
-
-    this.setState({
-      query,
-    });
-
-    dispatch(switchMenu(query));
-  };
 
   render() {
     const { query } = this.state;

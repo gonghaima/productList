@@ -13,9 +13,6 @@ Object {
     "rehydrated": true,
     "version": -1,
   },
-  "app": Object {
-    "alerts": Array [],
-  },
   "github": Object {
     "repos": Object {
       "data": Object {},

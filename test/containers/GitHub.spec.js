@@ -76,28 +76,4 @@ describe('GitHub', () => {
 
     expect(wrapper.find('Grid')).toMatchSnapshot();
   });
-
-  it('should dispatch an alert', () => {
-    wrapper.setProps({
-      github: {
-        repos: {
-          data: {},
-          status: STATUS.ERROR,
-          message: 'Nothing found',
-        },
-      },
-    });
-
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'SHOW_ALERT',
-      payload: {
-        id: 'ABCDE',
-        icon: undefined,
-        message: 'Nothing found',
-        position: 'bottom-right',
-        variant: 'danger',
-        timeout: 0,
-      },
-    });
-  });
 });
