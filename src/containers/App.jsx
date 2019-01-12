@@ -18,7 +18,7 @@ import RouteProduct from 'components/RouteProduct';
 
 const AppWrapper = styled.div`
   display: flex;
-  background-color: #f6f8fa;
+  background-color: #f6f6f6;
   flex-direction: column;
   min-height: 100vh;
   opacity: 1 !important;
