@@ -3,7 +3,7 @@
 exports[`GitHub should render properly 1`] = `
 <div
   data-testid="GitHubWrapper"
-  key="GitHub"
+  key="Product"
 >
   <Flex
     alignItems="center"
