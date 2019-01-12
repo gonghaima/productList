@@ -9,9 +9,6 @@ const props = {
     alerts: [],
   },
   dispatch: mockDispatch,
-  user: {
-    isAuthenticated: false,
-  },
 };
 
 function setup(ownProps = props) {

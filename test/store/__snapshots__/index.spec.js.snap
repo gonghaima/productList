@@ -24,9 +24,5 @@ Object {
       "status": "idle",
     },
   },
-  "user": Object {
-    "isAuthenticated": false,
-    "status": "idle",
-  },
 }
 `;

@@ -6,7 +6,6 @@ const mockDispatch = jest.fn();
 const props = {
   dispatch: mockDispatch,
   location: {},
-  user: {},
 };
 
 function setup(ownProps = props) {
