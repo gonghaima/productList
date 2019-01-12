@@ -13,11 +13,11 @@ describe('React-Redux-Saga-Boilerplate', () => {
   it('should be able to view the private area', () => {
     cy.getByTestId('PrivateWrapper')
       .should('have.length', 1)
-      .getByTestId('GitHubGrid')
+      .getByTestId('ProductGrid')
       .should('have.length', 1)
       .should('have.attr', 'data-type', 'react');
 
-    cy.getByTestId('GitHubGrid')
+    cy.getByTestId('ProductGrid')
       .get('li')
       .should('have.length', 30);
   });
@@ -39,7 +39,7 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should render the redux repos ', () => {
-    cy.getByTestId('GitHubGrid')
+    cy.getByTestId('ProductGrid')
       .should('have.length', 1)
       .should('have.attr', 'data-type', 'redux');
   });

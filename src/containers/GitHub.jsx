@@ -13,7 +13,7 @@ import Loader from 'components/Loader';
 const { responsive, spacer } = utils;
 const { grays } = theme;
 
-const GitHubGrid = styled.ul`
+const ProductGrid = styled.ul`
   display: grid;
   grid-auto-flow: row;
   grid-gap: ${spacer(2)};
@@ -117,7 +117,7 @@ export class GitHub extends React.Component {
     if (github.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
-          <GitHubGrid data-type={query} data-testid="GitHubGrid">
+          <ProductGrid data-type={query} data-testid="ProductGrid">
             {github.repos.data[query].map(d => (
               <li key={d.id}>
                 <Item>
@@ -136,7 +136,7 @@ export class GitHub extends React.Component {
                 </Item>
               </li>
             ))}
-          </GitHubGrid>
+          </ProductGrid>
         );
       } else {
         output = <h3>Nothing found</h3>;
