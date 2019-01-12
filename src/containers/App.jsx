@@ -54,9 +54,9 @@ export class App extends React.Component {
               titleTemplate={`%s | ${config.name}`}
               titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
             />
-            <Main isAuthenticated={true}>
+            <Main>
               <Switch>
-                <RoutePrivate isAuthenticated={true} path="/" component={Private} />
+                <RoutePrivate path="/" component={Private} />
                 <Route component={NotFound} />
               </Switch>
             </Main>

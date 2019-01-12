@@ -4,30 +4,10 @@ import { renderToString } from 'react-dom/server';
 import RoutePrivate from 'components/RoutePrivate';
 
 describe('modules/RoutePrivate', () => {
-  it('should redirect for unauthenticated access', () => {
+  it('should redirect for all access', () => {
     const render = renderToString(
       <Router initialEntries={['/private']}>
-        <RoutePrivate
-          exact
-          path="/private"
-          component={() => <div>PRIVATE</div>}
-          isAuthenticated={false}
-        />
-      </Router>,
-    );
-
-    expect(render).toMatchSnapshot();
-  });
-
-  it('should allow navigation for authenticated access', () => {
-    const render = renderToString(
-      <Router initialEntries={['/private']}>
-        <RoutePrivate
-          exact
-          path="/private"
-          component={() => <div>PRIVATE</div>}
-          isAuthenticated={true}
-        />
+        <RoutePrivate exact path="/private" component={() => <div>PRIVATE</div>} />
       </Router>,
     );
 
