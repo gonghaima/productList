@@ -8,7 +8,7 @@ import { appColor } from 'modules/theme';
 import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
 
-import { Box, Flex, Heading, Link, Image, Paragraph, theme, utils } from 'styled-minimal';
+import { Box, Flex, Heading, Image, Paragraph, theme, utils } from 'styled-minimal';
 import Loader from 'components/Loader';
 
 const { responsive, spacer } = utils;
@@ -76,7 +76,7 @@ const Item = styled(Box)`
   }
 
   img {
-    height: 8rem;
+    height: 20rem;
   }
 `;
 
@@ -155,6 +155,17 @@ export class Product extends React.Component {
             {product.repos.data[query].map(d => (
               <li key={d.id}>
                 <Item>
+                  <Image src={d.product_image} alt="alt" />
+                  <ItemHeader>
+                    <Heading as="h5" lineHeight={1}>
+                      {d.product_name}
+                    </Heading>
+                    <small>{d.description}</small>
+                  </ItemHeader>
+                  <Paragraph>{d.price}</Paragraph>
+                </Item>
+                {/* <Image src={d.product_image} alt="alt" /> */}
+                {/* <Item>
                   <Link href={d.html_url}>
                     <Image src={d.owner.avatar_url} alt={d.owner.login} />
                   </Link>
@@ -167,7 +178,7 @@ export class Product extends React.Component {
                     </Link>
                   </ItemHeader>
                   <Paragraph>{d.description}</Paragraph>
-                </Item>
+                </Item> */}
               </li>
             ))}
           </ProductGrid>
