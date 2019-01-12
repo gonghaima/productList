@@ -4,7 +4,7 @@ import { parseError } from 'modules/client';
 
 import { ActionTypes, STATUS } from 'constants/index';
 
-export const githubState = {
+export const productState = {
   repos: {
     data: {},
     status: STATUS.IDLE,
@@ -14,7 +14,7 @@ export const githubState = {
 };
 
 export default {
-  github: handleActions(
+  product: handleActions(
     {
       [ActionTypes.GITHUB_GET_REPOS]: (state, { payload }) => {
         const data = state.repos.data[payload.query] ? state.repos.data[payload.query] : [];
@@ -47,6 +47,6 @@ export default {
           },
         }),
     },
-    githubState,
+    productState,
   ),
 };

@@ -9,7 +9,7 @@ jest.mock('uuid/v4', () => () => 'ABCDE');
 const mockDispatch = jest.fn();
 const props = {
   dispatch: mockDispatch,
-  github: {
+  product: {
     repos: {
       data: [],
     },
@@ -40,7 +40,7 @@ describe('GitHub', () => {
 
   it("should not render if selected data doesn't exist", () => {
     wrapper.setProps({
-      github: {
+      product: {
         repos: {
           data: {},
           status: STATUS.READY,
@@ -53,7 +53,7 @@ describe('GitHub', () => {
 
   it('should render the Grid if data exists', () => {
     wrapper.setProps({
-      github: {
+      product: {
         repos: {
           data: {
             react: [

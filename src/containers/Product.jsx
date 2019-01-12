@@ -98,7 +98,7 @@ export class Product extends React.Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    github: PropTypes.object.isRequired,
+    product: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
@@ -110,15 +110,15 @@ export class Product extends React.Component {
 
   render() {
     const { query } = this.state;
-    const { github } = this.props;
-    const data = github.repos.data[query] || [];
+    const { product } = this.props;
+    const data = product.repos.data[query] || [];
     let output;
 
-    if (github.repos.status === STATUS.READY) {
+    if (product.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
           <ProductGrid data-type={query} data-testid="ProductGrid">
-            {github.repos.data[query].map(d => (
+            {product.repos.data[query].map(d => (
               <li key={d.id}>
                 <Item>
                   <Link href={d.html_url}>
@@ -156,7 +156,7 @@ export class Product extends React.Component {
 
 /* istanbul ignore next */
 function mapStateToProps(state) {
-  return { github: state.github };
+  return { product: state.product };
 }
 
 export default connect(mapStateToProps)(Product);

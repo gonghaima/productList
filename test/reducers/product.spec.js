@@ -3,12 +3,12 @@ import { ActionTypes } from 'constants/index';
 
 describe('Github', () => {
   it('should return the initial state', () => {
-    expect(reducer.github(undefined, {})).toMatchSnapshot();
+    expect(reducer.product(undefined, {})).toMatchSnapshot();
   });
 
   it(`should handle ${ActionTypes.GITHUB_GET_REPOS}`, () => {
     expect(
-      reducer.github(undefined, {
+      reducer.product(undefined, {
         type: ActionTypes.GITHUB_GET_REPOS,
         payload: { q: 'react' },
       }),
@@ -17,7 +17,7 @@ describe('Github', () => {
 
   it(`should handle ${ActionTypes.GITHUB_GET_REPOS_SUCCESS}`, () => {
     expect(
-      reducer.github(undefined, {
+      reducer.product(undefined, {
         type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
         payload: {},
       }),
@@ -26,7 +26,7 @@ describe('Github', () => {
 
   it(`should handle ${ActionTypes.GITHUB_GET_REPOS_FAILURE}`, () => {
     expect(
-      reducer.github(undefined, {
+      reducer.product(undefined, {
         type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
         payload: {},
       }),
