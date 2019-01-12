@@ -1,6 +1,6 @@
 /**
- * @module Sagas/GitHub
- * @desc GitHub
+ * @module Sagas/Product
+ * @desc Product
  */
 
 import { all, call, put, takeLatest } from 'redux-saga/effects';
@@ -34,7 +34,7 @@ export function* getRepos({ payload }) {
 }
 
 /**
- * GitHub Sagas
+ * Product Sagas
  */
 export default function* root() {
   yield all([takeLatest(ActionTypes.GITHUB_GET_REPOS, getRepos)]);

@@ -1,15 +1,15 @@
 import { expectSaga } from 'redux-saga-test-plan';
 
-import github, { getRepos } from 'sagas/github';
+import product, { getRepos } from 'sagas/product';
 import { ActionTypes } from 'constants/index';
 
 jest.mock('modules/client', () => ({
   request: () => ({ items: [] }),
 }));
 
-describe('github', () => {
+describe('product', () => {
   it('should have the expected watchers', done =>
-    expectSaga(github)
+    expectSaga(product)
       .run({ silenceTimeout: true })
       .then(saga => {
         expect(saga).toMatchSnapshot();
