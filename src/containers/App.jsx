@@ -10,7 +10,7 @@ import theme from 'modules/theme';
 
 import config from 'config';
 
-import Private from 'routes/Private';
+import Home from 'routes/Home';
 import NotFound from 'routes/NotFound';
 
 // import SystemAlerts from 'containers/SystemAlerts';
@@ -56,7 +56,7 @@ export class App extends React.Component {
             />
             <Main>
               <Switch>
-                <RoutePrivate path="/" component={Private} />
+                <RoutePrivate path="/" component={Home} />
                 <Route component={NotFound} />
               </Switch>
             </Main>

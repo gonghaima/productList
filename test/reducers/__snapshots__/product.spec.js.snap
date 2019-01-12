@@ -24,7 +24,7 @@ Object {
 }
 `;
 
-exports[`Github should handle GITHUB_GET_REPOS_SUCCESS 1`] = `
+exports[`Github should handle PRODUCT_GET_REPOS_SUCCESS 1`] = `
 Object {
   "repos": Object {
     "data": Object {

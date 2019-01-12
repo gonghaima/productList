@@ -1,141 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home should render properly 1`] = `
-.c0 {
-  background: #000 linear-gradient(to bottom,#00b4d5 0%,#002529 100%) fixed;
-  color: #fff;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.c0:before {
-  background: linear-gradient(to bottom,#000,#fff);
-  bottom: 0;
-  content: '';
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  right: 0;
-  top: 0;
-  -webkit-transform: rotate(-20deg) scale(1.5) translate(0,43%);
-  -ms-transform: rotate(-20deg) scale(1.5) translate(0,43%);
-  transform: rotate(-20deg) scale(1.5) translate(0,43%);
-}
-
-.c3 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 0;
-}
-
-.c3 svg {
-  height: auto;
-  max-height: 100%;
-  width: 4.8rem;
-}
-
-.c1 {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 1440px;
-  position: relative;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.c2 {
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.c2 svg {
-  width: 20rem;
-}
-
-.c4 {
-  color: #fff;
-  font-size: 3.5rem;
-  line-height: 1.4;
-  margin-bottom: 16px;
-  margin-top: 0;
-  text-align: center;
-}
-
-@media (min-width:768px) {
-  .c1 {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-@media (min-width:1024px) {
-  .c4 {
-    font-size: 4rem;
-  }
-}
-
-<Background
-  data-testid="HomeWrapper"
-  key="Home"
+exports[`Private should render properly 1`] = `
+<Screen
+  data-testid="PrivateWrapper"
+  key="Private"
+  minHeight="100vh"
 >
-  <div
-    className="c0"
-    data-testid="HomeWrapper"
+  <Container
+    verticalPadding={true}
   >
-    <HomeContainer
-      verticalPadding={false}
-      verticlPadding={true}
-    >
-      <div
-        className="c1"
-      >
-        <Header>
-          <div
-            className="c2"
-          >
-            <Logo>
-              <div
-                className="c3"
-              >
-                <SVGMock />
-              </div>
-            </Logo>
-          </div>
-        </Header>
-        <Heading>
-          <h1
-            className="c4"
-          >
-            React-Redux-Saga Boilerplate
-          </h1>
-        </Heading>
-      </div>
-    </HomeContainer>
-  </div>
-</Background>
+    <Connect(Product) />
+  </Container>
+</Screen>
 `;

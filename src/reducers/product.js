@@ -30,7 +30,7 @@ export default {
           },
         });
       },
-      [ActionTypes.GITHUB_GET_REPOS_SUCCESS]: (state, { payload }) =>
+      [ActionTypes.PRODUCT_GET_REPOS_SUCCESS]: (state, { payload }) =>
         immutable(state, {
           repos: {
             data: {

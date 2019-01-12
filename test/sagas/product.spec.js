@@ -19,7 +19,7 @@ describe('product', () => {
   it('should have the repos saga', () =>
     expectSaga(getRepos, { payload: { query: 'react' } })
       .put({
-        type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
+        type: ActionTypes.PRODUCT_GET_REPOS_SUCCESS,
         payload: {
           data: [],
         },

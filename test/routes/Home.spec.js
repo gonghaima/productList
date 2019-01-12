@@ -1,18 +1,17 @@
 import React from 'react';
 
-import { Home } from 'routes/Home';
+import Home from 'routes/Home';
 
-const mockDispatch = jest.fn();
-const props = {
-  dispatch: mockDispatch,
-  location: {},
-};
+function setup() {
+  const props = {
+    dispatch: () => {},
+    location: {},
+  };
 
-function setup(ownProps = props) {
-  return mount(<Home {...ownProps} />);
+  return shallow(<Home {...props} />);
 }
 
-describe('Home', () => {
+describe('Private', () => {
   const wrapper = setup();
 
   it('should render properly', () => {

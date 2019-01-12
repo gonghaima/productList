@@ -15,10 +15,10 @@ describe('Github', () => {
     ).toMatchSnapshot();
   });
 
-  it(`should handle ${ActionTypes.GITHUB_GET_REPOS_SUCCESS}`, () => {
+  it(`should handle ${ActionTypes.PRODUCT_GET_REPOS_SUCCESS}`, () => {
     expect(
       reducer.product(undefined, {
-        type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
+        type: ActionTypes.PRODUCT_GET_REPOS_SUCCESS,
         payload: {},
       }),
     ).toMatchSnapshot();

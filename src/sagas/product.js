@@ -21,7 +21,7 @@ export function* getRepos({ payload }) {
       `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`,
     );
     yield put({
-      type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
+      type: ActionTypes.PRODUCT_GET_REPOS_SUCCESS,
       payload: { data: response.items },
     });
   } catch (err) {
