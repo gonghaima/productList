@@ -114,7 +114,6 @@ const Pagination = styled.div`
     margin-left: -1px;
     line-height: 1.42857143;
     text-decoration: none;
-    background-color: #fff;
   }
 
   a:hover {
