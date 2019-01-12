@@ -1,0 +1,22 @@
+// import { delay } from 'redux-saga';
+// import { expectSaga } from 'redux-saga-test-plan';
+
+// import { ActionTypes } from 'constants/index';
+
+// describe('user', () => {
+//   it('should match the login saga', () =>
+//     expectSaga(login)
+//       .call(delay, 400)
+//       .put({
+//         type: ActionTypes.USER_LOGIN_SUCCESS,
+//       })
+//       .run(500));
+
+//   it('should match the logout saga', () =>
+//     expectSaga(logout)
+//       .call(delay, 200)
+//       .put({
+//         type: ActionTypes.USER_LOGOUT_SUCCESS,
+//       })
+//       .run());
+// });
