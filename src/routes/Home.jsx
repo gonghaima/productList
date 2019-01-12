@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import config from 'config';
-import { login } from 'actions/index';
 
 import { Container, utils } from 'styled-minimal';
 import Background from 'components/Background';
@@ -47,16 +46,10 @@ const Heading = styled.h1`
 `;
 
 export class Home extends React.PureComponent {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    user: PropTypes.object.isRequired,
-  };
-
-  handleClickLogin = () => {
-    const { dispatch } = this.props;
-
-    dispatch(login());
-  };
+  // static propTypes = {
+  //   dispatch: PropTypes.func.isRequired,
+  //   // user: PropTypes.object.isRequired,
+  // };
 
   render() {
     return (
@@ -72,9 +65,4 @@ export class Home extends React.PureComponent {
   }
 }
 
-/* istanbul ignore next */
-function mapStateToProps(state) {
-  return { user: state.user };
-}
-
-export default connect(mapStateToProps)(Home);
+export default connect()(Home);
