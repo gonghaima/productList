@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 
-import { getRepos, setSelection } from 'actions/index';
+import { getRepos, setSelection, setPage } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import { Select, Flex, Image } from 'styled-minimal';
@@ -32,6 +32,7 @@ export class Product extends React.Component {
     };
 
     this.handleSelect = this.handleSelect.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   static propTypes = {
@@ -47,10 +48,19 @@ export class Product extends React.Component {
   }
 
   handleSelect(event) {
-    console.log('event.target.value--', event.target.value);
-    // debugger;
     const { dispatch } = this.props;
     dispatch(setSelection(event.target.value));
+  }
+
+  handlePageChange(event) {
+    // {selected: 1}
+
+    const {
+      dispatch,
+      selection: { itemPerPage },
+    } = this.props;
+    const offset = Math.floor(event.selected * itemPerPage);
+    dispatch(setPage(offset));
   }
 
   render() {
@@ -81,21 +91,26 @@ export class Product extends React.Component {
               </SummaryItem>
             </Summary>
             <Divider />
+            selection.currentPage{selection.currentPage}***** selection.itemPerPage{' '}
+            {selection.itemPerPage}***** selection.currentPage * selection.itemPerPage{' '}
+            {selection.currentPage * selection.itemPerPage}
             <ProductGrid data-type={query} data-testid="ProductGrid">
-              {product.repos.data[query].slice(0, Number(selection.itemPerPage)).map(d => (
-                <li key={d.id}>
-                  <Item>
-                    <ImageSection>
-                      <Image src={d.product_image} alt="alt" />
-                    </ImageSection>
-                    <DetailsSection>
-                      <ItemTitle>{d.product_name}</ItemTitle>
-                      <ItemDescription>{d.description}</ItemDescription>
-                      <ItemPrice>{d.price}</ItemPrice>
-                    </DetailsSection>
-                  </Item>
-                </li>
-              ))}
+              {product.repos.data[query]
+                .slice(selection.currentPage, selection.itemPerPage)
+                .map(d => (
+                  <li key={d.id}>
+                    <Item>
+                      <ImageSection>
+                        <Image src={d.product_image} alt="alt" />
+                      </ImageSection>
+                      <DetailsSection>
+                        <ItemTitle>{d.product_name}</ItemTitle>
+                        <ItemDescription>{d.description}</ItemDescription>
+                        <ItemPrice>{d.price}</ItemPrice>
+                      </DetailsSection>
+                    </Item>
+                  </li>
+                ))}
             </ProductGrid>
             <Pagination>
               <ReactPaginate
@@ -106,7 +121,7 @@ export class Product extends React.Component {
                 pageCount={pageCount}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
-                onPageChange={() => {}}
+                onPageChange={this.handlePageChange}
                 containerClassName="pagination"
                 subContainerClassName="pages pagination"
                 activeClassName="active"

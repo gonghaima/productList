@@ -22,6 +22,7 @@ Object {
     },
   },
   "selection": Object {
+    "currentPage": 0,
     "itemPerPage": 4,
     "selectionItems": Array [
       4,

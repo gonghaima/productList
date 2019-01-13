@@ -6,6 +6,7 @@ import config from '../config';
 export const selectionState = {
   itemPerPage: config.selection[0],
   selectionItems: config.selection,
+  currentPage: 0,
 };
 
 export default {
@@ -15,6 +16,12 @@ export default {
         const data = payload.selectedValue;
         return immutable(state, {
           itemPerPage: { $set: data },
+        });
+      },
+      [ActionTypes.PAGE_CHANGE]: (state, { payload }) => {
+        const data = payload.currentPage;
+        return immutable(state, {
+          currentPage: { $set: data },
         });
       },
     },

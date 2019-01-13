@@ -16,6 +16,7 @@ export const ActionTypes = keyMirror({
   PRODUCT_GET_REPOS_SUCCESS: undefined,
   PRODUCT_GET_REPOS_FAILURE: undefined,
   SELECTION_CHANGE: undefined,
+  PAGE_CHANGE: undefined,
 });
 
 /**
