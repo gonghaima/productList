@@ -1,9 +1,11 @@
 import { handleActions } from 'redux-actions';
 import immutable from 'immutability-helper';
 import { ActionTypes } from 'constants/index';
+import config from '../config';
 
 export const selectionState = {
-  itemPerPage: 100,
+  itemPerPage: config.selection[0],
+  selectionItems: config.selection,
 };
 
 export default {

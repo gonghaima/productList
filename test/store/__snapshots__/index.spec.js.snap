@@ -22,7 +22,12 @@ Object {
     },
   },
   "selection": Object {
-    "itemPerPage": 100,
+    "itemPerPage": 4,
+    "selectionItems": Array [
+      4,
+      8,
+      10,
+    ],
   },
 }
 `;

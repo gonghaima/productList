@@ -63,7 +63,6 @@ export class Product extends React.Component {
         output = (
           <Fragment>
             <Title>All Products</Title>
-            <h1>{selection.itemPerPage}</h1>
             <Summary>
               <SummaryItem>
                 <ProductCount>{data.length} Products</ProductCount>
@@ -71,8 +70,11 @@ export class Product extends React.Component {
 
               <SummaryItem>
                 <Select sizing="sm" bordered={false} onChange={this.handleSelect}>
-                  <option value="8">8 per page</option>
-                  <option value="12">12 per page</option>
+                  {selection.selectionItems.map(val => (
+                    <option key={val} value={val}>
+                      {val} per page
+                    </option>
+                  ))}
                 </Select>
               </SummaryItem>
             </Summary>
