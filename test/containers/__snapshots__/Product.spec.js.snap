@@ -15,27 +15,6 @@ exports[`GitHub should render properly 1`] = `
     size={32}
     type="grow"
   />
-  <Pagination>
-    <PaginationBoxView
-      activeClassName="active"
-      breakClassName="break-me"
-      breakLabel="..."
-      containerClassName="pagination"
-      disableInitialCallback={false}
-      disabledClassName="disabled"
-      marginPagesDisplayed={2}
-      nextClassName="next"
-      nextLabel="next >"
-      onPageChange={[Function]}
-      pageCount={5}
-      pageRangeDisplayed={5}
-      previousClassName="previous"
-      previousLabel=
-< previous
-
-      subContainerClassName="pages pagination"
-    />
-  </Pagination>
 </div>
 `;
 

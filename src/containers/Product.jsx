@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { titleColor, borderColor, itemBgColor, subTitleColor } from 'modules/theme';
+import { titleColor, borderColor, itemBgColor, subTitleColor, priceColor } from 'modules/theme';
 
 import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
 
-import { Box, Flex, Heading, Image, Paragraph, theme, utils } from 'styled-minimal';
+import { Box, Flex, Image, utils } from 'styled-minimal';
 import Loader from 'components/Loader';
 
 const { responsive, spacer } = utils;
-const { grays } = theme;
+// const { grays } = theme;
 
-const Title = styled.h3`
+const Title = styled.h2`
   color: ${titleColor};
   padding: 0 10px;
   margin: 0;
@@ -34,7 +34,7 @@ const Divider = styled.hr`
   height: 1px;
   border: 0;
   border-top: 1px solid ${borderColor};
-  margin: 0.4em 0.4em;
+  margin: 0.7em 0.4em;
   padding: 0;
 `;
 const ProductGrid = styled.ul`
@@ -43,7 +43,7 @@ const ProductGrid = styled.ul`
   grid-gap: ${spacer(2)};
   grid-template-columns: 100%;
   list-style: none;
-  margin: ${spacer(4)} auto 0;
+  margin: 0px ${spacer(4)} auto 0;
   padding: 0;
   /* stylelint-disable */
   ${/* istanbul ignore next */ p =>
@@ -110,19 +110,30 @@ const ImageSection = styled.div`
 `;
 const DetailsSection = styled.div`
   border-top: 1px solid ${borderColor};
+  text-align: left;
+  padding-left: ${spacer(3)};
   width: 100%;
   display: block;
-`;
-const ItemHeader = styled.div`
   margin-bottom: ${spacer(3)};
 
   a {
     display: block;
   }
+`;
 
-  small {
-    color: ${grays.gray60};
-  }
+const ItemTitle = styled.h4`
+  color: ${titleColor};
+  margin: ${spacer(3)} ${spacer(0)} ${spacer(1)} ${spacer(0)};
+`;
+
+const ItemDescription = styled.h4`
+  color: ${subTitleColor};
+  margin: 0px 0px ${spacer(2)} 0px;
+`;
+
+const ItemPrice = styled.h6`
+  color: ${priceColor};
+  margin: 0;
 `;
 
 const Pagination = styled.div`
@@ -187,12 +198,8 @@ export class Product extends React.Component {
           <Fragment>
             <Title>All Products</Title>
             <Summary>
-              <div>
-                <small>24 Products</small>
-              </div>
-              <div>
-                <small>8 per page</small>
-              </div>
+              <div>24 Products</div>
+              <div>8 per page</div>
             </Summary>
             <Divider />
             <ProductGrid data-type={query} data-testid="ProductGrid">
@@ -203,13 +210,9 @@ export class Product extends React.Component {
                       <Image src={d.product_image} alt="alt" />
                     </ImageSection>
                     <DetailsSection>
-                      <ItemHeader>
-                        <Heading as="h5" lineHeight={1}>
-                          {d.product_name}
-                        </Heading>
-                        <small>{d.description}</small>
-                      </ItemHeader>
-                      <Paragraph>{d.price}</Paragraph>
+                      <ItemTitle>{d.product_name}</ItemTitle>
+                      <ItemDescription>{d.description}</ItemDescription>
+                      <ItemPrice>{d.price}</ItemPrice>
                     </DetailsSection>
                   </Item>
                   {/* <Image src={d.product_image} alt="alt" /> */}
