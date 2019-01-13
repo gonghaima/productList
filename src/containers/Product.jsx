@@ -205,7 +205,7 @@ export class Product extends React.Component {
     }
 
     return (
-      <div key="Product" data-testid="GitHubWrapper">
+      <div key="Product" data-testid="ProductWrapper">
         <Flex justifyContent="center" />
         {output}
         <Pagination>

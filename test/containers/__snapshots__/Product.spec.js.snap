@@ -2,7 +2,7 @@
 
 exports[`GitHub should render properly 1`] = `
 <div
-  data-testid="GitHubWrapper"
+  data-testid="ProductWrapper"
   key="Product"
 >
   <Flex
