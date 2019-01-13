@@ -3,6 +3,8 @@ export const headerHeight = 70;
 export const appColor = '#00b4d5';
 export const mainBgColor = '#f6f8fa';
 export const borderColor = '#E5E5E5';
+export const titleColor = '#6A6A6A';
+export const subTitleColor = '#666';
 export const anchorHoverColor = '#337ab7';
 export const itemBgColor = '#ffffff';
 

@@ -6,7 +6,7 @@ import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
 import history from 'modules/history';
-import theme from 'modules/theme';
+import theme, { titleColor } from 'modules/theme';
 
 import config from 'config';
 
@@ -24,6 +24,10 @@ const AppWrapper = styled.div`
   opacity: 1 !important;
   position: relative;
   transition: opacity 0.5s;
+  h3,
+  h5 {
+    color: ${titleColor};
+  }
 `;
 
 const Main = styled.main`

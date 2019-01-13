@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { borderColor, itemBgColor } from 'modules/theme';
+import { titleColor, borderColor, itemBgColor, subTitleColor } from 'modules/theme';
 
 import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
@@ -14,6 +14,29 @@ import Loader from 'components/Loader';
 const { responsive, spacer } = utils;
 const { grays } = theme;
 
+const Title = styled.h3`
+  color: ${titleColor};
+  padding: 0 10px;
+  margin: 0;
+`;
+
+const Summary = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: ${subTitleColor};
+`;
+
+const Divider = styled.hr`
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid ${borderColor};
+  margin: 0.4em 0.4em;
+  padding: 0;
+`;
 const ProductGrid = styled.ul`
   display: grid;
   grid-auto-flow: row;
@@ -161,25 +184,36 @@ export class Product extends React.Component {
     if (product.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
-          <ProductGrid data-type={query} data-testid="ProductGrid">
-            {product.repos.data[query].map(d => (
-              <li key={d.id}>
-                <Item>
-                  <ImageSection>
-                    <Image src={d.product_image} alt="alt" />
-                  </ImageSection>
-                  <DetailsSection>
-                    <ItemHeader>
-                      <Heading as="h5" lineHeight={1}>
-                        {d.product_name}
-                      </Heading>
-                      <small>{d.description}</small>
-                    </ItemHeader>
-                    <Paragraph>{d.price}</Paragraph>
-                  </DetailsSection>
-                </Item>
-                {/* <Image src={d.product_image} alt="alt" /> */}
-                {/* <Item>
+          <Fragment>
+            <Title>All Products</Title>
+            <Summary>
+              <div>
+                <small>24 Products</small>
+              </div>
+              <div>
+                <small>8 per page</small>
+              </div>
+            </Summary>
+            <Divider />
+            <ProductGrid data-type={query} data-testid="ProductGrid">
+              {product.repos.data[query].map(d => (
+                <li key={d.id}>
+                  <Item>
+                    <ImageSection>
+                      <Image src={d.product_image} alt="alt" />
+                    </ImageSection>
+                    <DetailsSection>
+                      <ItemHeader>
+                        <Heading as="h5" lineHeight={1}>
+                          {d.product_name}
+                        </Heading>
+                        <small>{d.description}</small>
+                      </ItemHeader>
+                      <Paragraph>{d.price}</Paragraph>
+                    </DetailsSection>
+                  </Item>
+                  {/* <Image src={d.product_image} alt="alt" /> */}
+                  {/* <Item>
                   <Link href={d.html_url}>
                     <Image src={d.owner.avatar_url} alt={d.owner.login} />
                   </Link>
@@ -193,9 +227,25 @@ export class Product extends React.Component {
                   </ItemHeader>
                   <Paragraph>{d.description}</Paragraph>
                 </Item> */}
-              </li>
-            ))}
-          </ProductGrid>
+                </li>
+              ))}
+            </ProductGrid>
+            <Pagination>
+              <ReactPaginate
+                previousLabel={'< previous'}
+                nextLabel={'next >'}
+                breakLabel="..."
+                breakClassName="break-me"
+                pageCount={5}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={() => {}}
+                containerClassName="pagination"
+                subContainerClassName="pages pagination"
+                activeClassName="active"
+              />
+            </Pagination>
+          </Fragment>
         );
       } else {
         output = <h3>Nothing found</h3>;
@@ -208,21 +258,6 @@ export class Product extends React.Component {
       <div key="Product" data-testid="ProductWrapper">
         <Flex justifyContent="center" />
         {output}
-        <Pagination>
-          <ReactPaginate
-            previousLabel={'< previous'}
-            nextLabel={'next >'}
-            breakLabel="..."
-            breakClassName="break-me"
-            pageCount={5}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={() => {}}
-            containerClassName="pagination"
-            subContainerClassName="pages pagination"
-            activeClassName="active"
-          />
-        </Pagination>
       </div>
     );
   }
