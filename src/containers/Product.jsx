@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { appColor } from 'modules/theme';
+import { borderColor, itemBgColor } from 'modules/theme';
 
 import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
@@ -49,8 +49,9 @@ const ProductGrid = styled.ul`
 `;
 
 const Item = styled(Box)`
+  background: ${itemBgColor};
   align-items: center;
-  border: solid 0.1rem ${appColor};
+  border: solid 0.1rem ${borderColor};
   border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
@@ -63,10 +64,10 @@ const Item = styled(Box)`
   ${/* istanbul ignore next */ p =>
     responsive({
       md: `
-        padding: ${spacer(3)(p)};
+        padding: ${spacer(3)(p)} ${spacer(0)(p)};
       `,
       lg: `
-        padding: ${spacer(4)(p)};
+        padding: ${spacer(2)(p)} ${spacer(0)(p)};
       `,
     })};
   /* stylelint-enable */
@@ -80,6 +81,15 @@ const Item = styled(Box)`
   }
 `;
 
+const ImageSection = styled.div`
+  padding: 6px;
+  margin: 0;
+`;
+const DetailsSection = styled.div`
+  border-top: 1px solid ${borderColor};
+  width: 100%;
+  display: block;
+`;
 const ItemHeader = styled.div`
   margin-bottom: ${spacer(3)};
 
@@ -155,14 +165,18 @@ export class Product extends React.Component {
             {product.repos.data[query].map(d => (
               <li key={d.id}>
                 <Item>
-                  <Image src={d.product_image} alt="alt" />
-                  <ItemHeader>
-                    <Heading as="h5" lineHeight={1}>
-                      {d.product_name}
-                    </Heading>
-                    <small>{d.description}</small>
-                  </ItemHeader>
-                  <Paragraph>{d.price}</Paragraph>
+                  <ImageSection>
+                    <Image src={d.product_image} alt="alt" />
+                  </ImageSection>
+                  <DetailsSection>
+                    <ItemHeader>
+                      <Heading as="h5" lineHeight={1}>
+                        {d.product_name}
+                      </Heading>
+                      <small>{d.description}</small>
+                    </ItemHeader>
+                    <Paragraph>{d.price}</Paragraph>
+                  </DetailsSection>
                 </Item>
                 {/* <Image src={d.product_image} alt="alt" /> */}
                 {/* <Item>
