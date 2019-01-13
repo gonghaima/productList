@@ -57,6 +57,8 @@ export class Product extends React.Component {
     const { query } = this.state;
     const { product, selection } = this.props;
     const data = product.repos.data[query] || [];
+    const pageCount =
+      selection && selection.itemPerPage ? Math.ceil(data.length / selection.itemPerPage) : 0;
     let output;
     if (product.repos.status === STATUS.READY) {
       if (data.length) {
@@ -101,7 +103,7 @@ export class Product extends React.Component {
                 nextLabel={'next >'}
                 breakLabel="..."
                 breakClassName="break-me"
-                pageCount={5}
+                pageCount={pageCount}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={() => {}}

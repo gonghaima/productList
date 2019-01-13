@@ -63,13 +63,10 @@ describe('GitHub', () => {
             react: [
               {
                 id: 12,
-                name: 'magic-tricks',
-                html_url: 'https://github.com/username/magic-tricks',
-                description: 'nothing much',
-                owner: {
-                  avatar_url: 'avatar_url',
-                  login: 'username',
-                },
+                price: '$58.30',
+                product_name: 'CAPTOPRIL',
+                description: 'synthesize seamless methodologies',
+                product_image: 'http://dummyimage.com/340x330.jpg/cc0000/ffffff',
               },
             ],
           },
