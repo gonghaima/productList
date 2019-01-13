@@ -70,6 +70,9 @@ export class Product extends React.Component {
     const pageCount =
       selection && selection.itemPerPage ? Math.ceil(data.length / selection.itemPerPage) : 0;
     let output;
+    console.log('product.repos.data[query]-------', product.repos.data[query]);
+    console.log('product.repos.status === STATUS.READY----', product.repos.status === STATUS.READY);
+    console.log('data.lengt---h', data.length);
     if (product.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
@@ -91,12 +94,9 @@ export class Product extends React.Component {
               </SummaryItem>
             </Summary>
             <Divider />
-            selection.currentPage{selection.currentPage}***** selection.itemPerPage{' '}
-            {selection.itemPerPage}***** selection.currentPage * selection.itemPerPage{' '}
-            {selection.currentPage * selection.itemPerPage}
             <ProductGrid data-type={query} data-testid="ProductGrid">
               {product.repos.data[query]
-                .slice(selection.currentPage, selection.itemPerPage)
+                .slice(selection.currentPage, selection.currentPage + selection.itemPerPage)
                 .map(d => (
                   <li key={d.id}>
                     <Item>
