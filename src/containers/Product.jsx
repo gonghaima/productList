@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { titleColor, borderColor, itemBgColor, subTitleColor, priceColor } from 'modules/theme';
+import { titleColor, borderColor, itemBgColor, subTitleColor, focusedColor } from 'modules/theme';
 
 import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
@@ -132,7 +132,7 @@ const ItemDescription = styled.h4`
 `;
 
 const ItemPrice = styled.h6`
-  color: ${priceColor};
+  color: ${focusedColor};
   margin: 0;
 `;
 
@@ -160,12 +160,11 @@ const Pagination = styled.div`
     text-decoration: none;
   }
 
+  a:focus,
   a:hover {
-    border-bottom: 3px solid #337ab7;
-  }
-  a:focus {
+    background: #fff;
     outline: unset;
-    border-bottom: 6px solid #337ab7;
+    border-bottom: 3px solid ${focusedColor};
   }
 `;
 

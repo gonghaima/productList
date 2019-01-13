@@ -5,7 +5,7 @@ export const mainBgColor = '#f6f8fa';
 export const borderColor = '#E5E5E5';
 export const titleColor = '#6A6A6A';
 export const subTitleColor = '#BFBFBF';
-export const priceColor = '#272727';
+export const focusedColor = '#272727';
 export const anchorHoverColor = '#337ab7';
 export const itemBgColor = '#ffffff';
 
