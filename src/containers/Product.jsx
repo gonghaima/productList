@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { titleColor, borderColor, itemBgColor, subTitleColor, focusedColor } from 'modules/theme';
 
-import { getRepos } from 'actions/index';
+import { getRepos, setSelection } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import { Select, Box, Flex, Image, utils } from 'styled-minimal';
@@ -181,28 +181,39 @@ const Pagination = styled.div`
 `;
 
 export class Product extends React.Component {
-  state = {
-    query: 'react',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: 'react',
+    };
+
+    this.handleSelect = this.handleSelect.bind(this);
+  }
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     product: PropTypes.object.isRequired,
+    selection: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
     const { query } = this.state;
     const { dispatch } = this.props;
-
     dispatch(getRepos(query));
+  }
+
+  handleSelect(event) {
+    console.log('event.target.value--', event.target.value);
+    // debugger;
+    const { dispatch } = this.props;
+    dispatch(setSelection(event.target.value));
   }
 
   render() {
     const { query } = this.state;
-    const { product } = this.props;
+    const { product, selection } = this.props;
     const data = product.repos.data[query] || [];
     let output;
-
     if (product.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
@@ -214,15 +225,15 @@ export class Product extends React.Component {
               </SummaryItem>
 
               <SummaryItem>
-                <Select sizing="sm" bordered={false}>
-                  <option>8 per page</option>
-                  <option>12 per page</option>
+                <Select sizing="sm" bordered={false} onChange={this.handleSelect}>
+                  <option value="8">8 per page</option>
+                  <option value="12">12 per page</option>
                 </Select>
               </SummaryItem>
             </Summary>
             <Divider />
             <ProductGrid data-type={query} data-testid="ProductGrid">
-              {product.repos.data[query].map(d => (
+              {product.repos.data[query].slice(0, Number(selection.itemPerPage)).map(d => (
                 <li key={d.id}>
                   <Item>
                     <ImageSection>
@@ -287,7 +298,7 @@ export class Product extends React.Component {
 
 /* istanbul ignore next */
 function mapStateToProps(state) {
-  return { product: state.product };
+  return { product: state.product, selection: state.selection };
 }
 
 export default connect(mapStateToProps)(Product);

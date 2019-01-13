@@ -53,6 +53,9 @@ describe('GitHub', () => {
 
   it('should render the Grid if data exists', () => {
     wrapper.setProps({
+      selection: {
+        itemPerPage: 1,
+      },
       product: {
         repos: {
           data: {

@@ -1,7 +1,7 @@
-// import app from './app';
+import selection from './selection';
 import product from './product';
 
 export default {
-  // ...app,
+  ...selection,
   ...product,
 };
