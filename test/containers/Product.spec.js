@@ -55,6 +55,7 @@ describe('GitHub', () => {
     wrapper.setProps({
       selection: {
         itemPerPage: 1,
+        selectionItems: [1, 3, 5],
       },
       product: {
         repos: {
