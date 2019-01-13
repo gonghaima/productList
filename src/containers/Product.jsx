@@ -8,7 +8,7 @@ import { titleColor, borderColor, itemBgColor, subTitleColor, focusedColor } fro
 import { getRepos } from 'actions/index';
 import { STATUS } from 'constants/index';
 
-import { Box, Flex, Image, utils } from 'styled-minimal';
+import { Select, Box, Flex, Image, utils } from 'styled-minimal';
 import Loader from 'components/Loader';
 
 const { responsive, spacer } = utils;
@@ -27,6 +27,17 @@ const Summary = styled.div`
   justify-content: space-between;
   padding: 0 10px;
   color: ${subTitleColor};
+`;
+const SummaryItem = styled.div`
+  margin: 0;
+  width: 10%;
+  select {
+    background-color: #f6f6f6 !important;
+  }
+`;
+
+const ProductCount = styled.span`
+  vertical-align: sub;
 `;
 
 const Divider = styled.hr`
@@ -161,7 +172,8 @@ const Pagination = styled.div`
   }
 
   a:focus,
-  a:hover {
+  a:hover,
+  .active a {
     background: #fff;
     outline: unset;
     border-bottom: 3px solid ${focusedColor};
@@ -197,8 +209,16 @@ export class Product extends React.Component {
           <Fragment>
             <Title>All Products</Title>
             <Summary>
-              <div>24 Products</div>
-              <div>8 per page</div>
+              <SummaryItem>
+                <ProductCount>{data.length} Products</ProductCount>
+              </SummaryItem>
+
+              <SummaryItem>
+                <Select sizing="sm" bordered={false}>
+                  <option>8 per page</option>
+                  <option>12 per page</option>
+                </Select>
+              </SummaryItem>
             </Summary>
             <Divider />
             <ProductGrid data-type={query} data-testid="ProductGrid">

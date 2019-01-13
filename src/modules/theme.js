@@ -1,6 +1,6 @@
 export const headerHeight = 70;
 
-export const appColor = '#00b4d5';
+export const appColor = '#f6f6f6';
 export const mainBgColor = '#f6f8fa';
 export const borderColor = '#E5E5E5';
 export const titleColor = '#6A6A6A';

@@ -11,7 +11,7 @@ exports[`GitHub should render properly 1`] = `
   />
   <Loader
     block={true}
-    color="#00b4d5"
+    color="#f6f6f6"
     size={32}
     type="grow"
   />

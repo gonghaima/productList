@@ -6,7 +6,7 @@ import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
 import history from 'modules/history';
-import theme, { titleColor } from 'modules/theme';
+import theme, { appColor, titleColor } from 'modules/theme';
 
 import config from 'config';
 
@@ -18,7 +18,7 @@ import RouteProduct from 'components/RouteProduct';
 
 const AppWrapper = styled.div`
   display: flex;
-  background-color: #f6f6f6;
+  background-color: ${appColor};
   flex-direction: column;
   min-height: 100vh;
   opacity: 1 !important;
