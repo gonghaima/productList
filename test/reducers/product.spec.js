@@ -1,7 +1,7 @@
 import reducer from 'reducers/product';
 import { ActionTypes } from 'constants/index';
 
-describe('Github', () => {
+describe('Product', () => {
   it('should return the initial state', () => {
     expect(reducer.product(undefined, {})).toMatchSnapshot();
   });

@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render properly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "query": Object {},
+        "search": "",
+        "state": Object {},
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ThemeProvider
+    theme={
+      Object {
+        "breakpoints": Array [
+          400,
+          768,
+          1024,
+          1280,
+          1920,
+        ],
+        "button": Object {
+          "borderRadius": Object {
+            "lg": 28,
+            "xl": 32,
+            "xs": 4,
+          },
+          "padding": Object {
+            "lg": Array [
+              12,
+              28,
+            ],
+            "xl": Array [
+              14,
+              32,
+            ],
+          },
+        },
+        "palette": Object {
+          "anchorHoverColor": "#337ab7",
+          "borderColor": "#E5E5E5",
+          "mainBgColor": "#f6f8fa",
+          "primary": "#f6f6f6",
+        },
+      }
+    }
+  >
+    <AppWrapper>
+      <HelmetWrapper
+        defaultTitle="react-redux-saga-boilerplate"
+        defer={false}
+        encodeSpecialCharacters={true}
+        htmlAttributes={
+          Object {
+            "lang": "pt-br",
+          }
+        }
+        titleAttributes={
+          Object {
+            "itemprop": "name",
+            "lang": "pt-br",
+          }
+        }
+        titleTemplate="%s | react-redux-saga-boilerplate"
+      />
+      <Main>
+        <Switch>
+          <RouteProduct
+            component={[Function]}
+            path="/"
+          />
+          <Route
+            component={[Function]}
+          />
+        </Switch>
+      </Main>
+      <_default />
+    </AppWrapper>
+  </ThemeProvider>
+</Router>
+`;
+
+exports[`App should render the Grid if data exists 1`] = `null`;
+
+exports[`App should render the Grid if data exists 2`] = `null`;

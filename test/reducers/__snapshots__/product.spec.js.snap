@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Github should handle PRODUCT_GET_MAKE 1`] = `
+exports[`Product should handle PRODUCT_GET_MAKE 1`] = `
 Object {
   "repos": Object {
     "data": Object {
@@ -13,7 +13,7 @@ Object {
 }
 `;
 
-exports[`Github should handle PRODUCT_GET_REPOS_FAILURE 1`] = `
+exports[`Product should handle PRODUCT_GET_REPOS_FAILURE 1`] = `
 Object {
   "repos": Object {
     "data": Object {},
@@ -24,7 +24,7 @@ Object {
 }
 `;
 
-exports[`Github should handle PRODUCT_GET_SUCCESS 1`] = `
+exports[`Product should handle PRODUCT_GET_SUCCESS 1`] = `
 Object {
   "repos": Object {
     "data": Object {
@@ -37,7 +37,7 @@ Object {
 }
 `;
 
-exports[`Github should return the initial state 1`] = `
+exports[`Product should return the initial state 1`] = `
 Object {
   "repos": Object {
     "data": Object {},

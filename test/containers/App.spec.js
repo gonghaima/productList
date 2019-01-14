@@ -2,7 +2,8 @@ import React from 'react';
 
 import { STATUS } from 'constants/index';
 
-import { Product } from 'containers/Product';
+import { App } from 'containers/App';
+import { Pagination } from '../../src/containers/styled/product';
 
 jest.mock('uuid/v4', () => () => 'ABCDE');
 
@@ -17,35 +18,19 @@ const props = {
 };
 
 function setup(ownProps = props) {
-  return shallow(<Product {...ownProps} />, { attachTo: document.getElementById('react') });
+  return shallow(<App {...ownProps} />, { attachTo: document.getElementById('react') });
 }
 
-describe('Product', () => {
+describe('App', () => {
   const wrapper = setup();
 
   it('should render properly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render a Loader without data', () => {
-    expect(wrapper.find('Loader')).toExist();
-  });
-
-  it('should have dispatched an action on mount', () => {
-    expect(mockDispatch).toHaveBeenCalledWith({
-      payload: { query: 'react' },
-      type: 'PRODUCT_GET_MAKE',
-    });
-  });
-
   it("should not render if selected data doesn't exist", () => {
     wrapper.setProps({
-      product: {
-        repos: {
-          data: {},
-          status: STATUS.READY,
-        },
-      },
+      product: {},
     });
 
     expect(wrapper.find('Grid')).not.toExist();
@@ -76,5 +61,6 @@ describe('Product', () => {
     });
 
     expect(wrapper.find('Grid')).toMatchSnapshot();
+    expect(wrapper.find(Pagination)).toMatchSnapshot();
   });
 });

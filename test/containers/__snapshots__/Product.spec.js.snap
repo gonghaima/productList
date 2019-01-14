@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GitHub should render properly 1`] = `
+exports[`Product should render properly 1`] = `
 <div
   data-testid="ProductWrapper"
   key="Product"
@@ -18,4 +18,4 @@ exports[`GitHub should render properly 1`] = `
 </div>
 `;
 
-exports[`GitHub should render the Grid if data exists 1`] = `null`;
+exports[`Product should render the Grid if data exists 1`] = `null`;

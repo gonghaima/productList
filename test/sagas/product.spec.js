@@ -1,8 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan';
-
-import product from 'sagas/product';
-// import product, { getRepos } from 'sagas/product';
-// import { ActionTypes } from 'constants/index';
+import product, { getProducts } from 'sagas/product';
+import { ActionTypes } from 'constants/index';
 
 jest.mock('modules/client', () => ({
   request: () => ({ items: [] }),
@@ -17,13 +15,13 @@ describe('product', () => {
         done();
       }));
 
-  // it('should have the repos saga', () =>
-  //   expectSaga(getRepos, { payload: { query: 'react' } })
-  //     .put({
-  //       type: ActionTypes.PRODUCT_GET_SUCCESS,
-  //       payload: {
-  //         data: [],
-  //       },
-  //     })
-  //     .run());
+  it('should have the product saga', () =>
+    expectSaga(getProducts, { payload: { query: 'react' } })
+      .put({
+        type: ActionTypes.PRODUCT_GET_SUCCESS,
+        payload: {
+          data: [],
+        },
+      })
+      .run());
 });
