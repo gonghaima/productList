@@ -5,7 +5,7 @@
 
 import NPMPackage from '../package.json';
 
-const selection = [4, 8, 10];
+const selection = [4, 8, 10, 20, 40];
 
 const config = {
   name: NPMPackage.name,
