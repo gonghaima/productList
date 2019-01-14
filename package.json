@@ -184,7 +184,8 @@
   },
   "proxy": "http://localhost:8081",
   "scripts": {
-    "start": "node tools/start",
+    "start": "yarn server & yarn client",
+    "client": "node tools/start",
     "server": "node server/server",
     "build": "node tools/build",
     "build:serve": "npm run build && npm run serve",

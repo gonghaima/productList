@@ -3,9 +3,11 @@
  * @desc Product
  */
 
-import { all, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { request } from 'modules/client';
 import { ActionTypes } from 'constants/index';
-import productData from '../mocks/productData';
+// import gitHubData from '../mocks/githubData';
+// import productData from '../mocks/productData';
 
 /**
  * Get Repos
@@ -16,9 +18,10 @@ import productData from '../mocks/productData';
 // export function* getRepos({ payload })
 export function* getProducts() {
   try {
+    const response = yield call(request, '/api/product');
     yield put({
       type: ActionTypes.PRODUCT_GET_SUCCESS,
-      payload: { data: productData },
+      payload: { data: response.data },
     });
   } catch (err) {
     yield put({
