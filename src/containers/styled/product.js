@@ -161,13 +161,15 @@ const Pagination = styled.div`
     line-height: 1.42857143;
     text-decoration: none;
   }
-
-  a:focus,
-  a:hover,
+  .active a:hover,
   .active a {
     background: #fff;
     outline: unset;
     border-bottom: 3px solid ${focusedColor};
+  }
+  .disabled a {
+    color: ${subTitleColor};
+    cursor: not-allowed;
   }
 `;
 

@@ -113,8 +113,8 @@ export class Product extends React.Component {
     return (
       <Pagination>
         <ReactPaginate
-          previousLabel={'< previous'}
-          nextLabel={'next >'}
+          previousLabel={'< previous page'}
+          nextLabel={'next page >'}
           breakLabel="..."
           breakClassName="break-me"
           pageCount={pageCount}
