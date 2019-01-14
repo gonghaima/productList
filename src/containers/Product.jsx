@@ -59,6 +59,71 @@ export class Product extends React.Component {
     dispatch(setPage(currentPage));
   }
 
+  renderProduct(query, product, selection) {
+    return (
+      <ProductGrid data-type={query} data-testid="ProductGrid">
+        {product.repos.data[query]
+          .slice(
+            selection.currentPage * selection.itemPerPage,
+            Number(selection.currentPage * selection.itemPerPage) + Number(selection.itemPerPage),
+          )
+          .map(d => (
+            <li key={d.id}>
+              <Item>
+                <ImageSection>
+                  <Image src={d.product_image} alt="alt" />
+                </ImageSection>
+                <DetailsSection>
+                  <ItemTitle>{d.product_name}</ItemTitle>
+                  <ItemDescription>{d.description}</ItemDescription>
+                  <ItemPrice>{d.price}</ItemPrice>
+                </DetailsSection>
+              </Item>
+            </li>
+          ))}
+      </ProductGrid>
+    );
+  }
+
+  renderSummary(data, selection) {
+    return (
+      <Summary>
+        <SummaryItem>
+          <ProductCount>{data.length} Products</ProductCount>
+        </SummaryItem>
+        <SummaryItem>
+          <Select sizing="sm" bordered={false} onChange={this.handleSelect}>
+            {selection.selectionItems.map(val => (
+              <option key={val} value={val}>
+                {val} per page
+              </option>
+            ))}
+          </Select>
+        </SummaryItem>
+      </Summary>
+    );
+  }
+
+  renderPagination(pageCount, pageChange) {
+    return (
+      <Pagination>
+        <ReactPaginate
+          previousLabel={'< previous'}
+          nextLabel={'next >'}
+          breakLabel="..."
+          breakClassName="break-me"
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={pageChange}
+          containerClassName="pagination"
+          subContainerClassName="pages pagination"
+          activeClassName="active"
+        />
+      </Pagination>
+    );
+  }
+
   render() {
     const { query } = this.state;
     const { product, selection } = this.props;
@@ -71,59 +136,10 @@ export class Product extends React.Component {
         output = (
           <Fragment>
             <Title>All Products</Title>
-            <Summary>
-              <SummaryItem>
-                <ProductCount>{data.length} Products</ProductCount>
-              </SummaryItem>
-
-              <SummaryItem>
-                <Select sizing="sm" bordered={false} onChange={this.handleSelect}>
-                  {selection.selectionItems.map(val => (
-                    <option key={val} value={val}>
-                      {val} per page
-                    </option>
-                  ))}
-                </Select>
-              </SummaryItem>
-            </Summary>
+            {this.renderSummary(data, selection)}
             <Divider />
-            <ProductGrid data-type={query} data-testid="ProductGrid">
-              {product.repos.data[query]
-                .slice(
-                  selection.currentPage * selection.itemPerPage,
-                  Number(selection.currentPage * selection.itemPerPage) +
-                    Number(selection.itemPerPage),
-                )
-                .map(d => (
-                  <li key={d.id}>
-                    <Item>
-                      <ImageSection>
-                        <Image src={d.product_image} alt="alt" />
-                      </ImageSection>
-                      <DetailsSection>
-                        <ItemTitle>{d.product_name}</ItemTitle>
-                        <ItemDescription>{d.description}</ItemDescription>
-                        <ItemPrice>{d.price}</ItemPrice>
-                      </DetailsSection>
-                    </Item>
-                  </li>
-                ))}
-            </ProductGrid>
-            <Pagination>
-              <ReactPaginate
-                previousLabel={'< previous'}
-                nextLabel={'next >'}
-                breakLabel="..."
-                breakClassName="break-me"
-                pageCount={pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={this.handlePageChange}
-                containerClassName="pagination"
-                subContainerClassName="pages pagination"
-                activeClassName="active"
-              />
-            </Pagination>
+            {this.renderProduct(query, product, selection)}
+            {this.renderPagination(pageCount, this.handlePageChange)}
           </Fragment>
         );
       } else {
