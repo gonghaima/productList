@@ -59,6 +59,30 @@ export class Product extends React.Component {
     dispatch(setPage(currentPage));
   }
 
+  renderSummary(data, selection) {
+    return (
+      <Summary>
+        <SummaryItem>
+          <ProductCount>{data.length} Products</ProductCount>
+        </SummaryItem>
+        <SummaryItem>
+          <Select
+            data-testid="ProductSelector"
+            sizing="sm"
+            bordered={false}
+            onChange={this.handleSelect}
+          >
+            {selection.selectionItems.map(val => (
+              <option key={val} value={val}>
+                {val} per page
+              </option>
+            ))}
+          </Select>
+        </SummaryItem>
+      </Summary>
+    );
+  }
+
   renderProduct(query, product, selection) {
     return (
       <ProductGrid data-type={query} data-testid="ProductGrid">
@@ -82,25 +106,6 @@ export class Product extends React.Component {
             </li>
           ))}
       </ProductGrid>
-    );
-  }
-
-  renderSummary(data, selection) {
-    return (
-      <Summary>
-        <SummaryItem>
-          <ProductCount>{data.length} Products</ProductCount>
-        </SummaryItem>
-        <SummaryItem>
-          <Select sizing="sm" bordered={false} onChange={this.handleSelect}>
-            {selection.selectionItems.map(val => (
-              <option key={val} value={val}>
-                {val} per page
-              </option>
-            ))}
-          </Select>
-        </SummaryItem>
-      </Summary>
     );
   }
 
