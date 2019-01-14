@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
 
-import { getRepos, setSelection, setPage } from 'actions/index';
+// eslint-disable-next-line import/named
+import { getProducts, setSelection, setPage } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import { Select, Flex, Image } from 'styled-minimal';
@@ -44,7 +45,7 @@ export class Product extends React.Component {
   componentDidMount() {
     const { query } = this.state;
     const { dispatch } = this.props;
-    dispatch(getRepos(query));
+    dispatch(getProducts(query));
   }
 
   handleSelect(event) {
@@ -53,14 +54,9 @@ export class Product extends React.Component {
   }
 
   handlePageChange(event) {
-    // {selected: 1}
-
-    const {
-      dispatch,
-      selection: { itemPerPage },
-    } = this.props;
-    const offset = Math.floor(event.selected * itemPerPage);
-    dispatch(setPage(offset));
+    const { dispatch } = this.props;
+    const currentPage = Math.floor(event.selected);
+    dispatch(setPage(currentPage));
   }
 
   render() {
@@ -70,9 +66,6 @@ export class Product extends React.Component {
     const pageCount =
       selection && selection.itemPerPage ? Math.ceil(data.length / selection.itemPerPage) : 0;
     let output;
-    console.log('product.repos.data[query]-------', product.repos.data[query]);
-    console.log('product.repos.status === STATUS.READY----', product.repos.status === STATUS.READY);
-    console.log('data.lengt---h', data.length);
     if (product.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
@@ -96,7 +89,11 @@ export class Product extends React.Component {
             <Divider />
             <ProductGrid data-type={query} data-testid="ProductGrid">
               {product.repos.data[query]
-                .slice(selection.currentPage, selection.currentPage + selection.itemPerPage)
+                .slice(
+                  selection.currentPage * selection.itemPerPage,
+                  Number(selection.currentPage * selection.itemPerPage) +
+                    Number(selection.itemPerPage),
+                )
                 .map(d => (
                   <li key={d.id}>
                     <Item>

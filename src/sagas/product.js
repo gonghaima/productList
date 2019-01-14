@@ -17,26 +17,13 @@ import productData from '../mocks/productData';
  *
  */
 // export function* getRepos({ payload })
-export function* getRepos() {
+export function* getProducts() {
   try {
-    // 405 Method Not Allowed - option call failed, server side should enable option call
-    // const response = yield call(
-    //   request,
-    //   `https://whitechdevs.github.io/reactjs-test/products.json`,
-    // );
-
-    // const response = yield call(
-    //   request,
-    //   `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`,
-    // );
-
-    // yield call(request, `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`);
     yield put({
-      type: ActionTypes.PRODUCT_GET_REPOS_SUCCESS,
+      type: ActionTypes.PRODUCT_GET_SUCCESS,
       payload: { data: productData },
     });
   } catch (err) {
-    /* istanbul ignore next */
     yield put({
       type: ActionTypes.PRODUCT_GET_REPOS_FAILURE,
       payload: err,
@@ -48,5 +35,5 @@ export function* getRepos() {
  * Product Sagas
  */
 export default function* root() {
-  yield all([takeLatest(ActionTypes.PRODUCT_GET_REPOS, getRepos)]);
+  yield all([takeLatest(ActionTypes.PRODUCT_GET_MAKE, getProducts)]);
 }

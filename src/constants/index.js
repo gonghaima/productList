@@ -12,8 +12,8 @@ import keyMirror from 'fbjs/lib/keyMirror';
 export const ActionTypes = keyMirror({
   SWITCH_MENU: undefined,
   EXCEPTION: undefined,
-  PRODUCT_GET_REPOS: undefined,
-  PRODUCT_GET_REPOS_SUCCESS: undefined,
+  PRODUCT_GET_MAKE: undefined,
+  PRODUCT_GET_SUCCESS: undefined,
   PRODUCT_GET_REPOS_FAILURE: undefined,
   SELECTION_CHANGE: undefined,
   PAGE_CHANGE: undefined,

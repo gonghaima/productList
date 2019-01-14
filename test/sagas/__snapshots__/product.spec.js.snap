@@ -7,8 +7,8 @@ Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
-          "PRODUCT_GET_REPOS",
-          "@@redux-saga-test-plan/json/function/getRepos",
+          "PRODUCT_GET_MAKE",
+          "@@redux-saga-test-plan/json/function/getProducts",
         ],
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeLatest",
@@ -19,7 +19,7 @@ Object {
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "PRODUCT_GET_REPOS",
+        "pattern": "PRODUCT_GET_MAKE",
       },
     },
   ],

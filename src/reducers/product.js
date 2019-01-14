@@ -16,7 +16,7 @@ export const productState = {
 export default {
   product: handleActions(
     {
-      [ActionTypes.PRODUCT_GET_REPOS]: (state, { payload }) => {
+      [ActionTypes.PRODUCT_GET_MAKE]: (state, { payload }) => {
         const data = state.repos.data[payload.query] ? state.repos.data[payload.query] : [];
 
         return immutable(state, {
@@ -30,7 +30,7 @@ export default {
           },
         });
       },
-      [ActionTypes.PRODUCT_GET_REPOS_SUCCESS]: (state, { payload }) =>
+      [ActionTypes.PRODUCT_GET_SUCCESS]: (state, { payload }) =>
         immutable(state, {
           repos: {
             data: {
